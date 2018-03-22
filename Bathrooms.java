@@ -1,9 +1,13 @@
 import java.util.Random;
 import java.util.concurrent.Semaphore;
+
 public class Bathrooms {
+
 	public static void main(String[] args) {
+
 		Random generator = new Random();
 		BathroomControl bsem = new BathroomControl();
+		
 		Thread man = new Thread(new Runnable() {
 			@Override
 			public void run() {
