@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Class that measures the execution time of matrix multiplication
@@ -22,10 +23,9 @@ public class MatMul_thread {
 
 		final int MAXTHREADS = 100;
 		double[] runtimes = new double[11]; //not 0-offset
+		int runtimeIndex = 1;
 		for (int i=1; i<MAXTHREADS; i++) {
-			//1) method to spawn i-number of threads, measuring runtime to store
-			//in array. increments of 10 i.e. 1->10->20->...->100
-			runtimes[i] = run(i);
+			ArrayList<Thread> threads = createThreads(i, arrayA, arrayB, result);
 		}
 		
 	}
@@ -44,6 +44,27 @@ public class MatMul_thread {
 				array[i][j] = ijEntry;
 			}
 		}
+	}
+
+	public static ArrayList<Thread> createThreads(int numberOfThreads, int[][] arrayA, int[][] arrayB, int[][] result) {
+		ArrayList<Threads> myThreads = new ArrayList<>();
+		for (int i=0; i<numberOfThreads; i++) {
+			myThreads.add(new Thread(new Runnable() {
+				//confusing matrix mult
+				@Override
+				public void run() {
+					int outerLength = arrayA.length;
+					int innerLength = arrayA[0].length;
+					int resultRow = 0;
+					for (int i=0; i<outerLength; i++) {
+						for (int j=0; j<innerLength; j++) {
+							 result[resultRow][]
+						}
+					}
+				}
+			}););
+		}
+		return myThreads;
 	}
 
 	public static int run(int threads) {
