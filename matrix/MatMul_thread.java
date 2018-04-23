@@ -1,19 +1,30 @@
 import java.util.Random;
 import java.util.Arrays;
+
+/**
+ * Class that measures the execution time of matrix multiplication
+ * must do 25 iterations of each run for threads 1-100, incremented by 10
+ * DONE:
+ * 	- created two arrays and methods to fill them with +/- values
+ * TODO:
+ * 	- determine how matrix multiplication even works multithreaded
+ * 	
+ */
 public class MatMul_thread {
 	public static void main(String[] args) {
 		final int MATRIXSIZE = 5;
 		int[][] arrayA = new int[MATRIXSIZE][MATRIXSIZE];
 		int[][] arrayB = new int[MATRIXSIZE][MATRIXSIZE];
+		int[][] result = new int[MATRIXSIZE][MATRIXSIZE];
 
 		fillArray(arrayA);
 		fillArray(arrayB);
 
 		final int MAXTHREADS = 100;
-		double[] runtimes = new double[101]; //not 0-offset
+		double[] runtimes = new double[11]; //not 0-offset
 		for (int i=1; i<MAXTHREADS; i++) {
 			//1) method to spawn i-number of threads, measuring runtime to store
-			//in array
+			//in array. increments of 10 i.e. 1->10->20->...->100
 			runtimes[i] = run(i);
 		}
 		
