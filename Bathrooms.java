@@ -1,6 +1,5 @@
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-
 public class Bathrooms {
 
 	public static void main(String[] args) {
