@@ -1,0 +1,62 @@
+Spring	2018	
+
+CSCI	4401/5401:	HW5	(100	points)	
+	
+
+	
+Matrix	Multiplication	
+Working	Summary:	In	this	assignment,	you	will	do:	
+(a)	A	multi-threaded	matrix	multiplication.	
+(b)	 and,	 you	 will	 compare	 the	 execution	 times	 for	 different	 numbers	 of	 threads	
+(starting	from	1	to	100,	incremented	by	10).	
+	
+Name	of	the	program:	The	name	of	the	program	will	be	‘MatMul_thread’.		
+	
+Generation	of	input	matrices:	You	will	create	two	randomly	generated	100	by	100	
+(square)	matrices	of	real	numbers,	numbers	can	be	both	negative	and	positive.		
+	
+Measuring	execution	time:	You	should	measure	the	execution	time	by	recording	the	
+start	 and	 end	 time.	 You	 must	 take	 average	 execution	 time	 from	 (minimum)	 25	
+iterations	 for	 each	 individual	 case	 for	 number	 of	 threads	 starting	 from	 1	 to	 100,	
+incremented	by	10.		Save	your	computed	results	in	comma	separated	vector	(CSV)	
+file	 named	 ‘exe_time.csv’,	 which	 will	 contain	 the	 average	 execution	 time	 for	 each	
+case.	 You	 can	 open	 such	 ~.csv	 file	 to	 be	 processed	 by	 Excel	 for	 graph	 generation	
+easily.	 Anyway,	 you	 will	 generate	 a	 graph:	 ‘number	 of	 threads	 versus	 execution	
+time’,	 where	 x-axis	 indicates	 number	 of	 threads	 =	 1,	 10,	 20,	 …,	 100	 and	 y-axis	
+indicates	the	corresponding	average	processing	time.		
+	
+Report:	 Place	 the	 above	 graph	 in	 your	 report	 document	 named	 as	 ‘myreport’	
+(preferably	 an	 MS	 Word	 file,	 e.g.,	 doc/docx).	 Explain	 the	 graph.	 If	 there	 is	 any	
+anomaly,	explain	that	as	well.	Further,	describe	your	algorithm	in	pseudo	code	and	
+place	 it	 in	 ‘myreport’.	 Mention	 your	 load	 balancing	 strategy--how	 you	 distributed	
+data/task	 among	 threads.	 Also,	 describe	 the	 machine	 you	 used	 for	 running	 your	
+program,	 in	 terms	 of	 number	 of	 available	 processors	 or	 cores.	 Save	 all	 input	 and	
+output	(resultant)	matrices	in	input1.txt,	input2.txt,	and	output.txt	files.	
+	
+Programming	Language	Preferences:	You	may	use	the	POSIX,	NOT	OpenMP	for	
+creating	threads.	You	must	code	in	Java	or	C/C++.	
+For	any	other	language	preferences	consult	the	instructor	(me)	first	or,	make	sure	
+that	the	language	supports	the	thread	or	process	creation.	And	if	you	need,	you	can	
+also	use	the	programming	language’s	libraries	related	to	this	parallel	computation	
+(if	exists	any).	
+	
+Submission:	Compress	all	the	related	files	in	a	single	folder	and	submit.	You	must	
+submit	the	source	code,	executable	version	including	all	the	files	mentioned	before	–	
+the	code	must	be	well	documented/commented.	You	must	include	a	‘readme’	file	
+which	will	describe	how	to	run	your	program,	plus	specify	the	compiler	used	for	the	
+
+code.	Describe	the	POSIX	functions	in	the	‘myreport’	that	you	have	used	in	your	
+program.	
+	
+	
+Due:	1	May	2018	11:55pm	
+	
+Late	submission	cutoff:	5	May	2018	
+	
+(Work	submitted	after	regular	deadline	but	before	the	late	submission	cutoff	will	be	
+graded	at	85%	max.)	
+	
+	
+	
+
+

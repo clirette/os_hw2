@@ -5,9 +5,9 @@ import java.util.Random;
  */
 public class MultiMatrix {
 	public static void main(String[] args) {
-		int[][] arrayA = new int[3][3];
-		int[][] arrayB = new int[3][3];
-		int[][] result = new int[3][3];
+		int[][] arrayA = new int[100][100];
+		int[][] arrayB = new int[100][100];
+		int[][] result = new int[100][100];
 		
 		fillArrays(arrayA);
 		fillArrays(arrayB);
@@ -19,8 +19,8 @@ public class MultiMatrix {
 
 		multiply(arrayA, arrayB, result);
 
-		// System.out.println("Result:");
-		// printArray(result);
+		System.out.println("Result:");
+		printArray(result);
 
 	}
 
@@ -28,9 +28,14 @@ public class MultiMatrix {
 		Random random = new Random();
 		int outerLength = array.length;
 		int innerLength = array[0].length;
+		int fill = 0;
 		for (int i=0; i<outerLength; i++) {
 			for (int j=0; j<innerLength; j++) {
-				array[i][j] = random.nextInt(5)+1;
+				fill = random.nextInt(5)+1;
+				if (random.nextInt(2) == 0) {
+					fill *= -1;
+				}
+				array[i][j] = fill;
 			}
 		}
 	}
@@ -49,26 +54,13 @@ public class MultiMatrix {
 	public static void multiply(int[][] arrayA, int[][] arrayB, int[][] result) {
 		int outerLength = arrayA.length;
 		int innerLength = arrayA[0].length;
-		int accumulator = 0;
-		int resultRowIndex = 0;
-		int resultColIndex = 0;
+
 		for (int i=0; i<outerLength; i++) {
 			for (int j=0; j<innerLength; j++) {
-				accumulator += arrayA[i][j] * arrayB[j][i];
+				for (int k=0; k<innerLength; k++) {
+					result[i][j] += arrayA[i][k] * arrayB[k][j];
+				}
 			}
-			System.out.println(accumulator);
-			/**
-			 * need to figure out how to index into result array
-			 */
-		// 	if (resultRowIndex % outerLength == 0) {
-		// 		resultRowIndex = 0;
-		// 	}
-		// 	if (resultColIndex % innerLength == 0) {
-		// 		resultColIndex = 0;
-		// 	}
-		// 	result[resultRowIndex][resultColIndex] = accumulator;
-		// 	resultRowIndex++;
-		// 	resultColIndex++;
 		}
 	}
 }
