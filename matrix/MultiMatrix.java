@@ -1,7 +1,19 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * resulting matrix will be rowsAxcolsB
+ * create averages array
+ * for threads 1, 10, 20, 30, ..., 100
+ * 		do 25 times:
+ 	 *		fill matrix arrays
+	 * 		get start time
+	 * 		multiply
+	 * 		get end time
+	 * 		store in runtime array
+ * 	    after 25: compute average and store in averages array
+ *
+ * question remains: how to quicken the calculations using threads?
  */
 public class MultiMatrix {
 	public static void main(String[] args) {
@@ -9,18 +21,33 @@ public class MultiMatrix {
 		int[][] arrayB = new int[100][100];
 		int[][] result = new int[100][100];
 		
-		fillArrays(arrayA);
-		fillArrays(arrayB);
 		
-		System.out.println("Array A:");
-		printArray(arrayA);
-		System.out.println("Array B:");
-		printArray(arrayB);
+		// System.out.println("Array A:");
+		// printArray(arrayA);
+		// System.out.println("Array B:");
+		// printArray(arrayB);
+		ArrayList<Long> runtimes = new ArrayList<Long>();
+		for (int i=1; i<25; i++) {
+			
+			fillArrays(arrayA);
+			fillArrays(arrayB);
+			long start = System.nanoTime();
+			multiply(arrayA, arrayB, result);
+			long end = System.nanoTime() - start;
+			// System.out.println(""+start+", "+end);
+			System.out.println("runtime iteration " + i + " is\t" + end);
+			runtimes.add(end);
+		}
 
-		multiply(arrayA, arrayB, result);
+		long total = 0;
+		for (int i=0; i<runtimes.size(); i++) {
+			total += runtimes.get(i);
+		}
+		double average = total / ((double)runtimes.size());
+		System.out.println("average: " + average);
 
-		System.out.println("Result:");
-		printArray(result);
+		// System.out.println("Result:");
+		// printArray(result);
 
 	}
 
