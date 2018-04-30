@@ -1,0 +1,22 @@
+create two 100x00 matrices with +/- values
+initialize threadCount = 10 to increment number of threads
+use executor service? https://crunchify.com/how-to-run-multiple-threads-concurrently-in-java-executorservice-approach/
+want to start at 1 thread:
+
+
+thread algorithm:
+	find unlocked result slot
+	obtain lock
+	compute and store result
+	if no more unlocked, exit
+
+
+Matrix Object:
+vars:
+int rposition
+int cposition
+______________
+methods:
+void lockResult(rposition, cposition) 
+boolean getNext(rposition, cposition)
+
