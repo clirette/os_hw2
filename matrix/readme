@@ -1,0 +1,4 @@
+to compile: javac MatMul_thread.java
+to run:     java MatMul_thread
+
+the program outputs four files: array1 (first array), array2 (second array), array3 (the result array), and out.csv (the csv file for runtimes)
